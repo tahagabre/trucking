@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Ambulance.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=7]
+friction = 0.5
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="CylinderMesh" id=4]
+
+[sub_resource type="CylinderMesh" id=5]
+
+[sub_resource type="CylinderMesh" id=6]
+
+[node name="Ambulance" type="VehicleBody"]
+physics_material_override = SubResource( 7 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.483771, 0, 0, 0, 0.319162, 0, 0, 0, 1.99425, 0, 0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="Mesh" type="MeshInstance" parent="."]
+transform = Transform( 0.402683, 0, 0, 0, 0.310929, 0, 0, 0, 1.75561, 0, 0.461113, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="VehicleWheel" type="VehicleWheel" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.408357, 0.147377, -1.47217 )
+use_as_traction = true
+wheel_rest_length = 0.07
+suspension_travel = 0.05
+suspension_stiffness = 70.0
+suspension_max_force = 1000.0
+damping_compression = 0.3
+damping_relaxation = 0.5
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel"]
+transform = Transform( -2.18557e-08, -0.05, 0, 0.5, -2.18557e-09, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="VehicleWheel2" type="VehicleWheel" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.409549, 0.147377, -1.47217 )
+use_as_traction = true
+wheel_rest_length = 0.07
+suspension_travel = 0.05
+suspension_stiffness = 70.0
+suspension_max_force = 1000.0
+damping_compression = 0.3
+damping_relaxation = 0.5
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel2"]
+transform = Transform( -2.18557e-08, 0.05, 0, -0.5, -2.18557e-09, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="VehicleWheel3" type="VehicleWheel" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.409549, 0.147377, 1.44531 )
+use_as_steering = true
+wheel_rest_length = 0.07
+suspension_travel = 0.05
+suspension_stiffness = 70.0
+suspension_max_force = 1000.0
+damping_compression = 0.3
+damping_relaxation = 0.5
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel3"]
+transform = Transform( -2.18557e-08, -0.05, 0, 0.5, -2.18557e-09, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VehicleWheel4" type="VehicleWheel" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.405365, 0.147377, 1.44531 )
+use_as_steering = true
+wheel_rest_length = 0.07
+suspension_travel = 0.05
+suspension_stiffness = 70.0
+suspension_max_force = 1000.0
+damping_compression = 0.3
+damping_relaxation = 0.5
+
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel4"]
+transform = Transform( -2.18557e-08, -0.05, 0, 0.5, -2.18557e-09, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 6 )
+material/0 = null
