@@ -1,94 +1,42 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Ambulance.gd" type="Script" id=1]
+[ext_resource path="res://RHS.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LHS.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Ambulance.gd" type="Script" id=3]
+[ext_resource path="res://Truck_TinyPlow.obj" type="ArrayMesh" id=4]
 
-[sub_resource type="PhysicsMaterial" id=7]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.5
 
-[sub_resource type="BoxShape" id=1]
-
-[sub_resource type="CubeMesh" id=2]
-
-[sub_resource type="CylinderMesh" id=3]
-
-[sub_resource type="CylinderMesh" id=4]
-
-[sub_resource type="CylinderMesh" id=5]
-
-[sub_resource type="CylinderMesh" id=6]
+[sub_resource type="BoxShape" id=2]
 
 [node name="Ambulance" type="VehicleBody"]
-physics_material_override = SubResource( 7 )
-script = ExtResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+physics_material_override = SubResource( 1 )
+script = ExtResource( 3 )
+engine_force_value = 500
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.483771, 0, 0, 0, 0.319162, 0, 0, 0, 1.99425, 0, 0.5, 0 )
-shape = SubResource( 1 )
+transform = Transform( 19, 0, 0, 0, 19, 0, 0, 0, 35, 0, 20.4026, 4.145 )
+shape = SubResource( 2 )
 
-[node name="Mesh" type="MeshInstance" parent="."]
-transform = Transform( 0.402683, 0, 0, 0, 0.310929, 0, 0, 0, 1.75561, 0, 0.461113, 0 )
-mesh = SubResource( 2 )
+[node name="Truck_TinyPlow" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -5 )
+mesh = ExtResource( 4 )
 material/0 = null
 
-[node name="VehicleWheel" type="VehicleWheel" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.408357, 0.147377, -1.47217 )
-use_as_traction = true
-wheel_rest_length = 0.07
-suspension_travel = 0.05
-suspension_stiffness = 70.0
-suspension_max_force = 1000.0
-damping_compression = 0.3
-damping_relaxation = 0.5
-
-[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel"]
-transform = Transform( -2.18557e-08, -0.05, 0, 0.5, -2.18557e-09, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = SubResource( 3 )
-material/0 = null
-
-[node name="VehicleWheel2" type="VehicleWheel" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.409549, 0.147377, -1.47217 )
-use_as_traction = true
-wheel_rest_length = 0.07
-suspension_travel = 0.05
-suspension_stiffness = 70.0
-suspension_max_force = 1000.0
-damping_compression = 0.3
-damping_relaxation = 0.5
-
-[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel2"]
-transform = Transform( -2.18557e-08, 0.05, 0, -0.5, -2.18557e-09, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="VehicleWheel3" type="VehicleWheel" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.409549, 0.147377, 1.44531 )
+[node name="LHS Wheel" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 17 )
 use_as_steering = true
-wheel_rest_length = 0.07
-suspension_travel = 0.05
-suspension_stiffness = 70.0
-suspension_max_force = 1000.0
-damping_compression = 0.3
-damping_relaxation = 0.5
 
-[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel3"]
-transform = Transform( -2.18557e-08, -0.05, 0, 0.5, -2.18557e-09, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = SubResource( 5 )
-material/0 = null
-__meta__ = {
-"_editor_description_": ""
-}
+[node name="LHS Wheel2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -22 )
+use_as_traction = true
 
-[node name="VehicleWheel4" type="VehicleWheel" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.405365, 0.147377, 1.44531 )
+[node name="RHS Wheel" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -16, -2, 17 )
 use_as_steering = true
-wheel_rest_length = 0.07
-suspension_travel = 0.05
-suspension_stiffness = 70.0
-suspension_max_force = 1000.0
-damping_compression = 0.3
-damping_relaxation = 0.5
 
-[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel4"]
-transform = Transform( -2.18557e-08, -0.05, 0, 0.5, -2.18557e-09, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = SubResource( 6 )
-material/0 = null
+[node name="RHS Wheel2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -16, -2, -21 )
+use_as_traction = true

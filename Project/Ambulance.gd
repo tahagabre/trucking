@@ -27,5 +27,3 @@ func _physics_process(delta):
 		brake = 0.0
 	
 	steering = move_toward(steering, steer_target, STEER_SPEED * delta)
-	print("steering:\t", steering)
-	print("engine force:\t", engine_force)

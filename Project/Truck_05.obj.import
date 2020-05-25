@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Truck_05.obj-8c4c653905ba6e7ff6de80cf1c8dea2b.mesh"
+
+[deps]
+
+files=[ "res://.import/Truck_05.obj-8c4c653905ba6e7ff6de80cf1c8dea2b.mesh" ]
+
+source_file="res://Truck_05.obj"
+dest_files=[ "res://.import/Truck_05.obj-8c4c653905ba6e7ff6de80cf1c8dea2b.mesh", "res://.import/Truck_05.obj-8c4c653905ba6e7ff6de80cf1c8dea2b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
